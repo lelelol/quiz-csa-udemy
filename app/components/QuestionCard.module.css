@@ -43,7 +43,8 @@
 }
 
 .optionSelected {
-  background-color: #d4d4d4; /* slightly darker to indicate selection */
+  background-color: #d4d4d4;
+  /* slightly darker to indicate selection */
   border-color: #a3a3a3;
 }
 
@@ -53,13 +54,15 @@
 }
 
 .optionCorrect {
-  background-color: #bbf7d0 !important; /* light green */
+  background-color: #bbf7d0 !important;
+  /* light green */
   border-color: #22c55e !important;
   color: #166534 !important;
 }
 
 .optionIncorrect {
-  background-color: #fecaca !important; /* light red */
+  background-color: #fecaca !important;
+  /* light red */
   border-color: #ef4444 !important;
   color: #991b1b !important;
 }
