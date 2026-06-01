@@ -8,6 +8,7 @@ import QuestionCard from '@/app/components/QuestionCard';
 import ResultsSummary from '@/app/components/ResultsSummary';
 import ThemeToggle from '@/app/components/ThemeToggle';
 import Timer from '@/app/components/Timer';
+import styles from './page.module.css';
 
 interface AnswerRecord {
   selected: number[];
@@ -16,17 +17,17 @@ interface AnswerRecord {
 
 export default function ExamSimulationPage() {
   const params = useParams();
-  
+
   const [questions, setQuestions] = useState<QuizQuestion[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<Map<number, AnswerRecord>>(new Map());
   const [showResults, setShowResults] = useState(false);
   const [timeSpent, setTimeSpent] = useState(0);
-  
+
   // 90 minutes
   const TOTAL_SECONDS = 90 * 60;
-  
+
   useEffect(() => {
     async function loadData() {
       try {
@@ -93,23 +94,27 @@ export default function ExamSimulationPage() {
   }
 
   const currentQuestion = questions[currentIndex];
-  
+
   return (
     <main className="app-container" style={{ maxWidth: '900px' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-        <div className="logo-container" style={{ marginBottom: 0, textAlign: 'left' }}>
-          <div className="logo-text" style={{ fontSize: '1.5rem', fontWeight: 700 }}>servicen<span>o</span>w&reg;</div>
-          <div className="logo-sub" style={{ fontSize: '0.8rem', marginTop: 0 }}>CSA</div>
+      <div className={styles.headerRow}>
+        <div className={`logo-container ${styles.logoBlock}`}>
+          <div className="logo-text" style={{ fontSize: 'clamp(1.05rem, 4vw, 1.4rem)', fontWeight: 700 }}>servicen<span>o</span>w&reg;</div>
+          <div className="logo-sub" style={{ fontSize: 'clamp(0.65rem, 2.5vw, 0.8rem)', marginTop: 0 }}>CSA</div>
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <Timer totalSeconds={TOTAL_SECONDS} onTimeUp={handleTimeUp} isRunning={!showResults} />
-          <button className="btn-outline" onClick={() => setShowResults(true)}>Submit</button>
-          <Link href="/exam" className="btn-outline">Restart</Link>
-          <ThemeToggle />
+        <div className={styles.actions}>
+          <div className={styles.actionsUtility}>
+            <Timer totalSeconds={TOTAL_SECONDS} onTimeUp={handleTimeUp} isRunning={!showResults} />
+            <ThemeToggle />
+          </div>
+          <div className={styles.actionsPrimary}>
+            <button className="btn-outline" onClick={() => setShowResults(true)}>Submit</button>
+            <Link href="/exam" className="btn-outline">Restart</Link>
+          </div>
         </div>
       </div>
-      
-      <QuestionCard 
+
+      <QuestionCard
         question={currentQuestion}
         questionIndex={currentIndex}
         totalQuestions={questions.length}
