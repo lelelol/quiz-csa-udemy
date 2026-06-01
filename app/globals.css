@@ -9,17 +9,17 @@
   --bg-button: #e5e5e5;
   --bg-button-hover: #d4d4d4;
   --bg-button-disabled: #666666;
-  
+
   --text-primary: #ffffff;
   --text-button: #000000;
   --text-button-disabled: #333333;
   --text-secondary: #a3a3a3;
-  
+
   --border-color: rgba(255, 255, 255, 0.1);
   --border-button: transparent;
-  
+
   --accent-green: #22c55e;
-  
+
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
@@ -29,15 +29,15 @@
   --bg-button: #e5e5e5;
   --bg-button-hover: #d4d4d4;
   --bg-button-disabled: #a3a3a3;
-  
+
   --text-primary: #000000;
   --text-button: #000000;
   --text-button-disabled: #666666;
   --text-secondary: #666666;
-  
+
   --border-color: rgba(0, 0, 0, 0.1);
   --border-button: rgba(0, 0, 0, 0.1);
-  
+
   --accent-green: #16a34a;
 }
 
